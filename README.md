@@ -1,6 +1,9 @@
 # Markdown to PowerPoint Converter
 
-This tool is designed to convert Markdown files into PowerPoint presentations. It is especially useful for users who find thinking in Markdown more natural than traditional slide-making tools. This converter allows you to quickly transition from ideas to a structured presentation format, facilitating rapid development of slide decks directly from text-based content.
+This tool is designed to convert Markdown files into PowerPoint presentations. It is especially useful for people like me, who find thinking in Markdown more natural than traditional slide-making tools. This converter allows you to quickly transition from ideas to a structured presentation format, facilitating rapid development of slide decks directly from text-based content.
+
+I think better in Markdown than in PowerPoint.
+
 
 ## Features
 
@@ -15,7 +18,7 @@ Ensure that Python and pip are installed on your system, then install the requir
 
 ```
 bash
-pip install python-pptx
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -36,6 +39,8 @@ To convert a specific Markdown file to a PowerPoint file with custom paths:
 To recursively process all Markdown files in the input directory, outputting PowerPoint files to the output directory:
 ```python script_name.py -i path/to/input/directory -o path/to/output/directory```
 
-#### Benefits
-Using this tool enhances productivity by enabling quick conversions of structured Markdown into visually appealing presentations. It is ideal for people like me, who prefer to outline and draft content in a code editor but sometimes need to deliver final products in a graphical format suitable for professional or educational presentations. I think better in Markdown than in PowerPoint.
-
+#### Give it a whirl
+Test it out immediately with a demo file:
+```python app.py -f input/demo.md -o output/demo.pptx```
+Or try it recursively on the demo directory:
+```python app.py -r```
