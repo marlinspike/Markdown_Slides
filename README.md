@@ -11,6 +11,9 @@ I think better in Markdown than in PowerPoint.
 - **Batch Processing:** Recursively convert all Markdown files in a directory to PowerPoint presentations.
 - **Customizable Input and Output:** Specify custom paths for input and output files.
 - **Automatic Directory Handling:** Automatically creates necessary output directories.
+- **Visual Indentation:** Indentation levels in the Markdown are visually represented in the PowerPoint slides to reflect the structure of the content.
+- **Configurable Text Formatting:** Configure text formatting such as bold for specific levels via environment settings.
+
 
 ## Installation
 
@@ -19,6 +22,16 @@ Ensure that Python and pip are installed on your system, then install the requir
 ```
 bash
 pip install -r requirements.txt
+```
+
+## Configuration
+Adjust the .env file to set font sizes and bold formatting for different indentation levels:
+
+```
+level-one=18
+level-two=16
+level-three=14
+bold-level-one=true  # Set to 'false' if you do not want level-1 text to be bold
 ```
 
 ## Usage
@@ -44,3 +57,6 @@ Test it out immediately with a demo file:
 ```python app.py -f input/demo.md -o output/demo.pptx```
 Or try it recursively on the demo directory:
 ```python app.py -r```
+
+### Tips for Usage
+Ensure all indentation in your Markdown files uses consistent spacing as expected by the script. Customize the .env file to fit your presentation style preferences regarding font sizes and text attributes like bold.
