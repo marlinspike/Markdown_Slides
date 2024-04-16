@@ -4,6 +4,8 @@ Slide 1: The Cultural Impact of "Never Gonna Give You Up"
   - The song that launched a thousand memes
   - Released in 1987 by **Rick Astley**
   - A classic example of _80s pop music_
+    - The first hit single from Astley's debut album
+      - So big, it even has its own Wikipedia page!
 
 - The Rickrolling Phenomenon
   - Rickrolling: [Tricking someone into watching the music video](https://en.wikipedia.org/wiki/Rickrolling)

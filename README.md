@@ -45,6 +45,8 @@ To convert a single Markdown file to a PowerPoint presentation using the default
 
 This assumes that the input file is located in the input directory and has the .md extension. The output file will be saved in the output directory with the .pptx extension.
 
+The demo file (demo.md in the 'input' directory) shows a demonstration of a slide deck. Note that the Slide Number is optional, and is there in the Markdown file for your own reference. Slides will be automatically numbered in the PowerPoint presentation. A Slide begins with the keyword **'Slide'** followed by the title.
+
 
 #### Custom File Conversion
 To convert a specific Markdown file to a PowerPoint file with custom paths:

@@ -29,17 +29,22 @@ def parse_markdown(md_file):
     Parses markdown file to slides and bullet points, considering indentation levels and additional Markdown syntax.
     Uses 2 spaces per indentation level.
     """
-    slides = {}
+    slides = []
     with open(md_file, 'r') as file:
         md_text = file.read()
-    current_slide_number = None
+    current_slide_number = 0
+    current_slide = None
     for line in md_text.strip().split('\n'):
-        slide_match = re.match(r'^Slide (\d+): (.+)', line)
+        slide_match = re.match(r'^Slide\s*(\d*)\s*:\s*(.*)', line)
         if slide_match:
-            current_slide_number = slide_match.group(1)
-            if current_slide_number not in slides:
-                slides[current_slide_number] = {'title': slide_match.group(2), 'content': []}
-        elif current_slide_number:
+            slide_number = slide_match.group(1)
+            slide_title = slide_match.group(2).strip()
+            current_slide_number += 1
+            if slide_number and int(slide_number) == current_slide_number:
+                current_slide_number = int(slide_number)
+            current_slide = {'number': current_slide_number, 'title': slide_title, 'content': []}
+            slides.append(current_slide)
+        elif current_slide:
             leading_spaces = len(line) - len(line.lstrip(' '))
             level = leading_spaces // 2
             text = line.strip()
@@ -64,8 +69,10 @@ def parse_markdown(md_file):
             text = re.sub(r'\[(.+?)\]\((.+?)\)', r'<a href="\2">\1</a>', text)
             # Parse images
             text = re.sub(r'!\[(.+?)\]\((.+?)\)', r'<img src="\2" alt="\1">', text)
-            slides[current_slide_number]['content'].append((text, level))
-    return list(slides.values())
+            current_slide['content'].append((text, level))
+    return slides
+
+
 
 def create_presentation(slides, pptx_file):
     prs = Presentation()
